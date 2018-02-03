@@ -1,0 +1,21 @@
+@import 'variables';
+
+@font-face {
+  src: url('./fonts/Rubik-Regular.ttf') format('truetype');
+  font-family: $regular;
+}
+
+@font-face {
+  src: url('./fonts/Rubik-Light.ttf') format('truetype');
+  font-family: $light;
+}
+
+@font-face {
+  src: url('./fonts/Oswald-SemiBold.ttf') format('truetype');
+  font-family: $semi-bold;
+}
+
+@font-face {
+  src: url('./fonts/Oswald-Bold.ttf') format('truetype');
+  font-family: $bold;
+}

@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+
+  ul {
+    display: flex;
+
+    li {
+      a {
+        font-family: $bold;
+
+        &:hover {
+          color: $text-secondary;
+        }
+      }
+
+      + li {
+        margin-left: 20px;
+      }
+    }
+  }
+}
