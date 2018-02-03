@@ -1,6 +1,7 @@
 const path = require('path');
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanPlugin = require('clean-webpack-plugin');
 
 const HTML = new HTMLPlugin({
   template: path.resolve(process.cwd(), './src/client/index.html'),
@@ -11,6 +12,15 @@ const HTML = new HTMLPlugin({
 const ExtractText = new ExtractTextPlugin({
   filename: 'styles.css'
 });
+
+const Clean = new CleanPlugin(
+  [
+    path.resolve(process.cwd(), 'build')
+  ],
+  {
+    allowExternal: true
+  }
+);
 
 const styleLoader = ExtractTextPlugin.extract({
   fallback: 'style-loader',
@@ -72,5 +82,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [HTML, ExtractText]
+  plugins: [Clean, HTML, ExtractText]
 }; 
