@@ -15,6 +15,10 @@ const setup = () => {
     userAgent: 'node.js'
   };
 
+
+  /**
+   * Any props that are not already defined, grab those props, and define them
+   */
   const props = Object.getOwnPropertyNames(window)
     .filter(prop => typeof global[prop] === 'undefined')
     .map(prop => Object.getOwnPropertyDescriptor(window, prop));

@@ -1,21 +1,54 @@
 import React, { Component } from 'react';
-import cs from 'classnames';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import {
+  increase,
+  decrease
+} from '../../modules/actions/Home';
 
 import Page from '../Page';
 import logo from '../../images/react-logo.png';
 import styles from './Home.scss';
 
 class Home extends Component {
+
+  handleDecrease(event) {
+    event.preventDefault();
+    this.props.decrease();
+  }
+
+  handleIncrease(event) {
+    event.preventDefault();
+    this.props.increase();
+  }
+
   render() {
+    const { home } = this.props;
     return (
       <Page>
         <div className={styles['page-home']}>
           <img src={logo} alt='react-logo' />
-          <div>Home</div>
+          <div>Home {home.value}</div>
+          <button onClick={this.handleIncrease.bind(this)}>Click to increase</button>
+          <button onClick={this.handleDecrease.bind(this)}>Click to decrease</button>
         </div>
       </Page>
     );
   }
 }
 
-export default Home;
+Home.propTypes = {
+  home: PropTypes.object,
+  increase: PropTypes.func,
+  decrease: PropTypes.func
+};
+
+const mapStateToProps = ({ home }) => ({ home });
+
+const mapDispatchToProps = (dispatch) => ({
+  increase: () => dispatch(increase()),
+  decrease: () => dispatch(decrease())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
