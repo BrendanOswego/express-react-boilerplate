@@ -1,19 +1,16 @@
-import {
-  INCREASE_REQUEST,
-  DECREASE_REQUEST
-} from '../types/Home';
+import * as types from '../types/Home';
 
 const defaultState = {
   value: 10
 };
 
-const HomeReducer = (state = defaultState, action) => {
+export const HomeReducer = (state = defaultState, action = { type: null }) => {
   switch (action.type) {
-    case INCREASE_REQUEST:
+    case types.INCREASE_REQUEST:
       return Object.assign({}, state, {
         value: state.value + 1
       });
-    case DECREASE_REQUEST:
+    case types.DECREASE_REQUEST:
       return Object.assign({}, state, {
         value: state.value - 1
       });
@@ -21,5 +18,3 @@ const HomeReducer = (state = defaultState, action) => {
       return state;
   }
 };
-
-export default HomeReducer;

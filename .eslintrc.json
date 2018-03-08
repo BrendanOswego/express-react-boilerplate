@@ -1,46 +1,46 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true,
-        "jasmine": true
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jasmine/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:jasmine/recommended"
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "jasmine"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "jasmine"
+    "linebreak-style": [
+      "error",
+      "unix"
     ],
-    "rules": {
-        "indent": [
-            "error",
-            2,
-            {
-                "SwitchCase": 1
-            }
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
-    }
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
 }

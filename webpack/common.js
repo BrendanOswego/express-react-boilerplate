@@ -9,17 +9,11 @@ const HTML = new HTMLPlugin({
   filename: 'index.html'
 });
 
-const ExtractText = new ExtractTextPlugin({
-  filename: 'styles.css'
-});
+const ExtractText = new ExtractTextPlugin({ filename: 'styles.css' });
 
 const Clean = new CleanPlugin(
-  [
-    path.resolve(process.cwd(), 'build')
-  ],
-  {
-    allowExternal: true
-  }
+  [path.resolve(process.cwd(), 'build')],
+  { allowExternal: true }
 );
 
 const styleLoader = ExtractTextPlugin.extract({

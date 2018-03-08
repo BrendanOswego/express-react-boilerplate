@@ -11,7 +11,7 @@ import Page from '../Page';
 import logo from '../../images/react-logo.png';
 import styles from './Home.scss';
 
-class Home extends Component {
+export class Home extends Component {
 
   handleDecrease(event) {
     event.preventDefault();
@@ -42,6 +42,12 @@ Home.propTypes = {
   home: PropTypes.object,
   increase: PropTypes.func,
   decrease: PropTypes.func
+};
+
+Home.defaultProps = {
+  home: {
+    value: 10
+  }
 };
 
 const mapStateToProps = ({ home }) => ({ home });
