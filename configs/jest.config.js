@@ -21,10 +21,7 @@ const config = {
       '<rootDir>/configs/mock',
     '\\.scss': 'identity-obj-proxy'
   },
-  coverageReporters,
-  transform: {
-    '^.+\\.jsx?$': 'babel-jest'
-  },
+  coverageReporters
 };
 
 module.exports = config;

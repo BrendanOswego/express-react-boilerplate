@@ -12,7 +12,6 @@ describe('Home component', () => {
 
   let store, wrapper, props;
 
-
   const e = {
     stopPropagation: () => { },
     preventDefault: () => { }
