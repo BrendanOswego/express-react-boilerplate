@@ -7,7 +7,7 @@ const Navigation = () => (
   <nav className={styles['main-nav']}>
     <ul>
       <NavLink isExact={true} to='/' label='HOME' />
-      <NavLink isExact={false} to='/about' label='ABOUT' />
+      <NavLink to='/about' label='ABOUT' />
     </ul>
   </nav>
 );
