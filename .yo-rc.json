@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Brendan Goldberg",
+      "authorEmail": "goldberg.brendan@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}
