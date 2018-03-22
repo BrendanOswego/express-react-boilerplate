@@ -6,7 +6,6 @@
   "scripts": {
     "prepublish": "nsp check",
     "pretest": "eslint .",
-    "precommit": "lint-staged",
     "test": "node ./tests/setup.js",
     "report": "nyc npm test --reporter=text-lcov"
   },
