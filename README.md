@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/BrendanOswego/generator-newr.svg?branch=master)](https://travis-ci.org/BrendanOswego/generator-newr)
 # generator-newr
 
 ## Installation
