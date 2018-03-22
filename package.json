@@ -1,34 +1,45 @@
 {
   "name": "generator-newr",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React Boilerplate with Express (production) and Webpack Dev Server (development)",
   "repository": "https://github.com/BrendanOswego/generator-newr",
   "scripts": {
     "prepublish": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
-    "test": "jest"
+    "test": "node ./tests/setup.js",
+    "report": "nyc npm test --reporter=text-lcov"
   },
   "devDependencies": {
     "coveralls": "^2.13.1",
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.4.0",
     "eslint-config-xo": "^0.18.2",
+    "eslint-plugin-jasmine": "^2.9.3",
     "eslint-plugin-prettier": "^2.2.0",
     "fs-extra": "^5.0.0",
     "husky": "^0.14.3",
-    "jest": "^22.0.6",
+    "jasmine": "^3.1.0",
+    "jasmine-console-reporter": "^2.0.1",
     "lint-staged": "^4.2.1",
     "nsp": "^2.6.3",
+    "nyc": "^11.6.0",
     "path": "^0.12.7",
     "prettier": "^1.7.0",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
   },
   "dependencies": {
-    "yeoman-generator": "^2.0.1",
     "chalk": "^2.1.0",
+    "rmdir": "^1.2.0",
+    "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
+  },
+  "nyc": {
+    "exclude": [
+      "tests/setup.js",
+      "generators/app/templates"
+    ]
   },
   "author": "Brendan Goldberg",
   "license": "MIT"

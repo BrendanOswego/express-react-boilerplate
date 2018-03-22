@@ -1,38 +1,23 @@
-# generator-temp [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> 
+# generator-newr
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-temp using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-newr using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-temp
+npm install -g generator-newr
 ```
 
 Then generate your new project:
 
 ```bash
-yo temp
+yo newr
 ```
-
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## License
 
 MIT © [Brendan Goldberg]()
 
-
-[npm-image]: https://badge.fury.io/js/generator-temp.svg
-[npm-url]: https://npmjs.org/package/generator-temp
-[travis-image]: https://travis-ci.org/BrendanOswego/generator-temp.svg?branch=master
-[travis-url]: https://travis-ci.org/BrendanOswego/generator-temp
-[daviddm-image]: https://david-dm.org/BrendanOswego/generator-temp.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/BrendanOswego/generator-temp
-[coveralls-image]: https://coveralls.io/repos/BrendanOswego/generator-temp/badge.svg
-[coveralls-url]: https://coveralls.io/r/BrendanOswego/generator-temp
+[travis-image]: https://travis-ci.org/BrendanOswego/generator-newr.svg?branch=master
+[travis-url]: https://travis-ci.org/BrendanOswego/generator-newr

@@ -1,26 +1,17 @@
+const path = require('path');
 const fs = require('fs-extra');
+const chalk = require('chalk');
 
-/**
-* Attempts to find an empty directory with props.baseDir as the default
-* @param {String} dir directory to check if exists 
-* @param {Number} index reference for recursion in the case that the dir is already taken
-* @returns the directory that the generator will be using as root directory
-*/
-const getDir = (dir, index = 0) => {
+const validator = (rootDir, name) => {
   return new Promise(resolve => {
-    fs.pathExists(dir).then(exists => {
-      resolve(exists);
+    fs.pathExists(path.resolve(rootDir, name)).then(exists => {
+      if (exists)
+        console.log(`\nDirectory ${chalk.yellow(name)} already exists please use a different name.`); // eslint-disable-line no-console
+      resolve(!exists);
     });
-  }).then(exists => {
-    return exists ? this.getDir(this.props.baseDir + '_' + index, ++index) : dir;
   });
 };
 
-const dirExists = async (dir) => (
-  fs.pathExists(dir)
-);
-
 module.exports = {
-  getDir,
-  dirExists
+  validator
 };
