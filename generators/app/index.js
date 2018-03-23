@@ -1,12 +1,13 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
-//const path = require('path');
 
-const { validator } = require('./helpers');
+const { Validator } = require('./helpers');
 const finishPrompt = require('./finishPrompt');
 
-module.exports = class extends Generator {
+const validator = new Validator(process.env.NODE_ENV === 'test');
+
+class CustomGenerator extends Generator {
 
   prompting() {
 
@@ -22,7 +23,7 @@ module.exports = class extends Generator {
         name: 'projectName',
         message: 'What is the name of this project?',
         default: 'generator-newr-default',
-        validate: (name) => validator(this.rootDir, name)
+        validate: (name) => validator.validate(this.rootDir, name)
       }
     ];
 
@@ -33,8 +34,7 @@ module.exports = class extends Generator {
 
   writing() {
     const dir = this.props.projectName;
-    if (process.env.NODE_ENV !== 'test')
-      this.destinationRoot(dir);
+    this.destinationRoot(dir);
     this.log(`Set project root directory to ${chalk.blue.bold(dir)}`);
 
     this.fs.copyTpl(
@@ -72,9 +72,6 @@ module.exports = class extends Generator {
 
   }
 
-  /**
-   * If devMode is true, only run postinstall
-   */
   install() {
     this.installDependencies({
       bower: false,
@@ -83,5 +80,6 @@ module.exports = class extends Generator {
       finishPrompt(this.props.projectName);
     });
   }
+}
 
-};
+module.exports = CustomGenerator;

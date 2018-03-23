@@ -7,7 +7,7 @@
     "prepublish": "nsp check",
     "pretest": "eslint .",
     "test": "node ./tests/setup.js",
-    "report": "nyc npm test --reporter=text-lcov"
+    "report": "nyc --reporter=lcov npm test"
   },
   "devDependencies": {
     "coveralls": "^2.13.1",

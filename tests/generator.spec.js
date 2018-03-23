@@ -4,13 +4,22 @@ const fs = require('fs-extra');
 const yt = require('yeoman-test');
 const assert = require('yeoman-assert');
 
-const { validator } = require('../generators/app/helpers');
+const { Validator } = require('../generators/app/helpers');
+
+const validator = new Validator(true);
 
 describe('generator creation tests', () => {
 
+  /**
+   * {String} Reference to the installed directory in the beforeAll function
+   */
   let installDir;
 
-  beforeEach(() => {
+  /**
+   * Before all test cases are ran, create a temporary folder
+   * where the project will be installed
+   */
+  beforeAll(() => {
     return yt.run(path.resolve(__dirname, '../generators/app'))
       .inTmpDir(dir => {
         installDir = dir;
@@ -18,16 +27,28 @@ describe('generator creation tests', () => {
       });
   });
 
-  afterEach(() => {
+
+  /**
+   * After all test cases are ran, remove the temporary folder
+   */
+  afterAll(() => {
     rmdir(installDir);
   });
 
-  it('generates temp project', () => {
+  it('should have copied template correctly', () => {
     assert.file(`${installDir}/src/client/index.js`);
+    assert.file(`${installDir}/src/server/index.js`);
   });
 
   it('validates project was added to right directory', () => {
-    validator(installDir, 'src').then(emptyDir => {
+    validator.validate(installDir, 'src').then(emptyDir => {
+      expect(emptyDir).toBe(false);
+    });
+  });
+
+  it('validates directory as if in CLI', () => {
+    validator.isDev = false;
+    validator.validate(installDir, 'src').then(emptyDir => {
       expect(emptyDir).toBe(false);
     });
   });
